@@ -107,11 +107,15 @@ docker-compose up --build
 
 ## Production Deployment
 
-- **Frontend** → Vercel (set `NEXT_PUBLIC_API_URL`)
-- **Backend** → Railway or Render
-- **Database** → PostgreSQL (Railway, Render, or Supabase)
+| Service | Platform |
+|---------|----------|
+| Database | [Neon](https://neon.tech) PostgreSQL |
+| Backend API | [Render](https://render.com) (`render.yaml`, root: `backend/`) |
+| Frontend | [Vercel](https://vercel.com) (root: `frontend/`) |
 
-See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for detailed instructions.
+**Full guide:** [docs/DEPLOYMENT_PRODUCTION.md](docs/DEPLOYMENT_PRODUCTION.md)
+
+Legacy Railway notes: [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)
 
 ## License
 

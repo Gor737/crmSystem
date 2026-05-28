@@ -1,9 +1,17 @@
 import dotenv from 'dotenv';
 import path from 'path';
+import { existsSync } from 'fs';
 import { PrismaClient, Role, LeadStatus, Priority, UserStatus } from '@prisma/client';
 import bcrypt from 'bcryptjs';
 
-dotenv.config({ path: path.resolve(__dirname, '../.env') });
+const envPath = path.resolve(__dirname, '../.env');
+if (existsSync(envPath)) {
+  dotenv.config({ path: envPath });
+}
+
+if (!process.env.DATABASE_URL) {
+  throw new Error('DATABASE_URL is required. Set it in .env or your shell environment.');
+}
 
 const prisma = new PrismaClient();
 

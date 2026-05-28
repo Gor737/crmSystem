@@ -1,5 +1,8 @@
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  // Always generate into backend's node_modules (monorepo-safe for Render/Railway)
+  output        = "../backend/node_modules/.prisma/client"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
 }
 
 datasource db {
